@@ -34,10 +34,11 @@ function langInput(inputValue, type) {
     input[type] = inputValue;
 }
 
-function buttonInput(id, type, argument) {
-    getText(id);
-    input[type] = currentValue[id];
-    divideInput(type, argument);
-    interpritateCode();
-    pasteText('paste', output.code)
-}
+//function buttonInput(id, type, argument) {
+//  getText(id);
+//    input[type] = currentValue[id];
+//    divideInput(type, argument);
+//    interpritateCode();
+//    codeOutput('new');
+//    pasteText('paste', output.code);
+//}

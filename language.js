@@ -24,5 +24,11 @@ function interpritateCode() {
 }
 
 function codeOutput(value) {
-
+    //let document.getElementById(value).innerHTML = document.getElementById(value).innerHTML; 
+    document.getElementById(value).innerHTML = 'function launchCode() {\n';
+    for (let count = 0; count < (output.code.length - 1); count++) {
+    document.getElementById(value).innerHTML += `${output.code[count]}\n`; 
+    }
+    console.log(document.getElementById(value).innerHTML);
+    document.getElementById(value).innerHTML += '\n}';
 }
