@@ -2,10 +2,6 @@ let currentValue = {
     console: "",
 }
 
-let isOn = {
-    sin: true,
-}
-
 function changeValue(id, value) {
     document.getElementById(id).innerHTML = 
     `<input type="text" value="${value}" 
@@ -21,8 +17,17 @@ function getText(id) {
     currentValue[id] = document.getElementById(id).value;
 }
 
-function pasteText(id, input) {
-    document.getElementById(id).innerHTML = input;
+function pasteText(id, input, mod) {
+    let mode = (mod == 'code');
+    let out = input;
+    if (mode) {
+        for (count = 0; count <= 5; count++) {
+            if (input[count] != undefined) {
+                out = `Output ${count} = ${input[count]}`
+            }
+        }
+    }
+    document.getElementById(id).innerHTML = out;
 }
 
 function lg(id) {
@@ -34,11 +39,17 @@ function langInput(inputValue, type) {
     input[type] = inputValue;
 }
 
-//function buttonInput(id, type, argument) {
-//  getText(id);
-//    input[type] = currentValue[id];
-//    divideInput(type, argument);
-//    interpritateCode();
-//    codeOutput('new');
-//    pasteText('paste', output.code);
-//}
+function divideInput(type, argument) {
+    input[type] = input[type].split(argument);
+    output[type] = input[type];
+}
+
+function buttonInput(id, type, argument) {
+ getText(id);
+   input[type] = currentValue[id];
+   divideInput(type, argument);
+   interpritateCode();
+   let str = codeOutput();
+   selfm(str);
+   pasteText('paste', output.task, 'code');
+}
